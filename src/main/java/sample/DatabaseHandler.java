@@ -86,6 +86,29 @@ public class DatabaseHandler extends Configs {
         }
     }
 
+    public void updateUser(Tour tour) {
+        String update = "UPDATE " + Const.USER_TABLE + " SET " + Const.USERS_DESTINATION + " =?, " + Const.USERS_PRICE + " =?, " + Const.USERS_HOTEL + " =?, " + Const.USERS_TRIP + " =?, " + Const.USERS_SHOPPING + " =? " + " WHERE " + Const.USERS_FIRSTNAME + "=? AND " + Const.USERS_LASTNAME + "=?";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(update);
+            prSt.setString(1, tour.getDestination());
+            prSt.setInt(2, tour.getPrice());
+            prSt.setString(3, tour.getHotel());
+            prSt.setString(4, tour.getTrip());
+            prSt.setString(5, tour.getShopping());
+            prSt.setString(6, tour.getFirstName());
+            prSt.setString(7, tour.getLastName());
+            System.out.println("inserted successfully");
+
+            prSt.executeUpdate();
+            ResultSet resultSet = prSt.executeQuery("SELECT * FROM " + Const.USER_TABLE);
+            display(resultSet);
+            System.out.println("updated");
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void display(ResultSet resultSet) throws SQLException {
 
