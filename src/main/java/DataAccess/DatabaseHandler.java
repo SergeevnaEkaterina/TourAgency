@@ -1,4 +1,8 @@
-package sample;
+package DataAccess;
+
+import Properties.Configs;
+import Properties.Const;
+import Model.Tour;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

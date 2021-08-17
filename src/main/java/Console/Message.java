@@ -1,4 +1,8 @@
-package sample;
+package Console;
+
+import DataAccess.DatabaseHandler;
+import Logic.PriceCounter;
+import Model.Tour;
 
 import java.util.*;
 

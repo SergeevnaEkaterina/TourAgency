@@ -1,4 +1,4 @@
-package sample;
+package Properties;
 
 public class Const {
     public static final String USER_TABLE = "tour";
