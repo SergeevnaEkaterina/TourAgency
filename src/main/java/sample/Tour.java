@@ -11,7 +11,7 @@ public class Tour {
     private String trip;
     private String shopping;
 
-    public Tour(String firstName, String lastName, String destination,int price, String hotel, String trip, String shopping) {
+    public Tour(String firstName, String lastName, String destination, int price, String hotel, String trip, String shopping) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.destination = destination;
