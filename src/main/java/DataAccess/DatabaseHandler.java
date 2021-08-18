@@ -23,9 +23,9 @@ public class DatabaseHandler extends Configs {
 
     }
 
-    public void addUser(Tour tour) {
+    public void addTour(Tour tour) {
 
-        String insert = "INSERT INTO " + Const.USER_TABLE + "(" +
+        String insert = "INSERT INTO " + Const.TOUR_TABLE + "(" +
                 Const.USERS_FIRSTNAME + "," + Const.USERS_LASTNAME + "," +
                 Const.USERS_DESTINATION + "," + Const.USERS_PRICE + "," +
                 Const.USERS_HOTEL + "," + Const.USERS_TRIP + "," + Const.USERS_SHOPPING + ")" +
@@ -42,7 +42,7 @@ public class DatabaseHandler extends Configs {
 
 
             prSt.executeUpdate();
-            ResultSet resultSet = prSt.executeQuery("SELECT * FROM " + Const.USER_TABLE);
+            ResultSet resultSet = prSt.executeQuery("SELECT * FROM " + Const.TOUR_TABLE);
             display(resultSet);
 
         } catch (SQLException | ClassNotFoundException e) {
@@ -52,9 +52,9 @@ public class DatabaseHandler extends Configs {
 
     }
 
-    public void selectUser(Tour tour) {
+    public void selectTour(Tour tour) {
         ResultSet resSet;
-        String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE " + Const.USERS_FIRSTNAME + "=? AND " + Const.USERS_LASTNAME + "=?";
+        String select = "SELECT * FROM " + Const.TOUR_TABLE + " WHERE " + Const.USERS_FIRSTNAME + "=? AND " + Const.USERS_LASTNAME + "=?";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             prSt.setString(1, tour.getFirstName());
@@ -70,8 +70,8 @@ public class DatabaseHandler extends Configs {
 
     }
 
-    public void deleteUser(Tour tour) {
-        String delete = "DELETE FROM " + Const.USER_TABLE + " WHERE " + Const.USERS_FIRSTNAME + "=? AND " + Const.USERS_LASTNAME + "=? AND " + Const.USERS_DESTINATION + "=?";
+    public void deleteTour(Tour tour) {
+        String delete = "DELETE FROM " + Const.TOUR_TABLE + " WHERE " + Const.USERS_FIRSTNAME + "=? AND " + Const.USERS_LASTNAME + "=? AND " + Const.USERS_DESTINATION + "=?";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(delete);
             prSt.setString(1, tour.getFirstName());
@@ -79,7 +79,7 @@ public class DatabaseHandler extends Configs {
             prSt.setString(3, tour.getDestination());
 
             prSt.executeUpdate();
-            ResultSet resultSet = prSt.executeQuery("SELECT * FROM " + Const.USER_TABLE);
+            ResultSet resultSet = prSt.executeQuery("SELECT * FROM " + Const.TOUR_TABLE);
             display(resultSet);
 
         } catch (SQLException | ClassNotFoundException e) {
@@ -87,8 +87,8 @@ public class DatabaseHandler extends Configs {
         }
     }
 
-    public void updateUser(Tour tour) {
-        String update = "UPDATE " + Const.USER_TABLE + " SET " + Const.USERS_DESTINATION + " =?, " + Const.USERS_PRICE + " =?, " + Const.USERS_HOTEL + " =?, " + Const.USERS_TRIP + " =?, " + Const.USERS_SHOPPING + " =? " + " WHERE " + Const.USERS_FIRSTNAME + "=? AND " + Const.USERS_LASTNAME + "=?";
+    public void updateTour(Tour tour) {
+        String update = "UPDATE " + Const.TOUR_TABLE + " SET " + Const.USERS_DESTINATION + " =?, " + Const.USERS_PRICE + " =?, " + Const.USERS_HOTEL + " =?, " + Const.USERS_TRIP + " =?, " + Const.USERS_SHOPPING + " =? " + " WHERE " + Const.USERS_FIRSTNAME + "=? AND " + Const.USERS_LASTNAME + "=?";
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(update);
@@ -101,7 +101,7 @@ public class DatabaseHandler extends Configs {
             prSt.setString(7, tour.getLastName());
 
             prSt.executeUpdate();
-            ResultSet resultSet = prSt.executeQuery("SELECT * FROM " + Const.USER_TABLE);
+            ResultSet resultSet = prSt.executeQuery("SELECT * FROM " + Const.TOUR_TABLE);
             display(resultSet);
 
         } catch (SQLException | ClassNotFoundException e) {

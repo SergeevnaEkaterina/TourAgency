@@ -20,7 +20,7 @@ public class Message {
 
                 user = generateTour(1);
                 DatabaseHandler d = new DatabaseHandler();
-                d.addUser(user);
+                d.addTour(user);
 
                 break;
             case ("2"):
@@ -28,7 +28,7 @@ public class Message {
 
                 user = generateTour(2);
                 DatabaseHandler data = new DatabaseHandler();
-                data.selectUser(user);
+                data.selectTour(user);
 
                 break;
             case ("3"):
@@ -36,14 +36,14 @@ public class Message {
 
                 user = generateTour(3);
                 DatabaseHandler dat = new DatabaseHandler();
-                dat.deleteUser(user);
+                dat.deleteTour(user);
 
                 break;
             case ("4"):
 
                 user = generateTour(4);
                 DatabaseHandler da = new DatabaseHandler();
-                da.updateUser(user);
+                da.updateTour(user);
 
                 break;
             default:

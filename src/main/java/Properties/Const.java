@@ -1,7 +1,7 @@
 package Properties;
 
 public class Const {
-    public static final String USER_TABLE = "tour";
+    public static final String TOUR_TABLE = "tour";
 
 
     public static final String USERS_FIRSTNAME = "firstname";
