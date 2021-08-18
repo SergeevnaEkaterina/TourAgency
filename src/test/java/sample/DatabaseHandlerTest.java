@@ -59,6 +59,24 @@ class DatabaseHandlerTest {
         assertEquals(expectedOutput, outContent.toString());
         d.deleteTour(tour);
     }
+    @Test
+    void testSelectTour() {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        DatabaseHandler d = new DatabaseHandler();
+        Tour tour = new Tour("Gleb", "Ivanov", "St Petersburg", 1230, "Astoria", "None", "None");
+        Tour newTour = new Tour("Anna", "Petrova", "Rome", 1300, "Italian Holidays", "Zoo", "Malls");
+        d.addTour(tour);
+        d.addTour(newTour);
+        d.selectTour(newTour);
+        String expectedOutput = " Gleb, Ivanov, St Petersburg, 1230, Astoria, None, None \n Gleb, Ivanov, St Petersburg, 1230, Astoria, None, None \n" +
+                " Anna, Petrova, Rome, 1300, Italian Holidays, Zoo, Malls \n Anna, Petrova, Rome, 1300, Italian Holidays, Zoo, Malls \n";
+
+        assertEquals(expectedOutput, outContent.toString());
+        d.deleteTour(tour);
+        d.deleteTour(newTour);
+    }
 
 
 }
